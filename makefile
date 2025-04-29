@@ -21,7 +21,7 @@ SOURCES = $(notdir $(SRCS))
 
 OBJECTS = $(patsubst %.cu, $(OBJ_DIR)/%.o, $(SOURCES))  
   
-BINS = cgls halfAR_inv cglsSolver cgls_Iteration double_blocking_QR cgls_highprecision cgls_direct cgls_lowprecision
+BINS = halfAR_inv cglsSolver cgls_Iteration double_blocking_QR cgls_highprecision cgls_direct cgls_lowprecision
  
 all: $(BINS)  
 
