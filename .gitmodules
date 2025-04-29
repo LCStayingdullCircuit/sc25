@@ -1,0 +1,3 @@
+[submodule "Tensor-BLAS"]
+	path = Tensor-BLAS
+	url = https://github.com/Orgline/Tensor-BLAS.git
