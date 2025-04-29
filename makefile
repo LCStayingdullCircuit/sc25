@@ -1,14 +1,16 @@
 CXX = nvcc  
 
 
-CFLAGS = -O3 -arch sm_90 -I $(CUDA_PATH)/include -I /yourpath/include \
-         -I /yourpath/Tensor-BLAS/include \
-         -I /yourpath/Tensor-BLAS/cuMpSGEMM/include  \
-		 -I /yourpath/inc_db
+YOURPATH = /yourpath  
+
+CFLAGS = -O3 -arch sm_90 -I $(CUDA_PATH)/include -I $(YOURPATH)/include \
+         -I $(YOURPATH)/Tensor-BLAS/include \
+         -I $(YOURPATH)/Tensor-BLAS/cuMpSGEMM/include  \
+         -I $(YOURPATH)/inc_db  
 
 LFLAGS = -L $(CUDA_PATH)/lib64 -lcusolver -lcublas -lcurand -lcudart -lcuda \
-         -L /yourpath/Tensor-BLAS/build -lTensorBLAS \
-         -L /yourpath/Tensor-BLAS/cuMpSGEMM/build -lcumpsgemm  
+         -L $(YOURPATH)/Tensor-BLAS/build -lTensorBLAS \
+         -L $(YOURPATH)/Tensor-BLAS/cuMpSGEMM/build -lcumpsgemm  
 
 SRC_DIR = src
 OBJ_DIR = obj
