@@ -7,7 +7,7 @@ import shlex # For safe command string splitting
 CGLS_DIRECT_EXEC = "./bin/cgls_direct"  
 CGLS_LOW_EXEC = "./bin/cgls_lowprecision"  
 CGLS_HIGH_EXEC = "./bin/cgls_highprecision"  
-PREDICT_SCRIPT = "LSTM/predict.py" # Assuming predict.py is in the same directory or PATH  
+PREDICT_SCRIPT = "LSTM/prediction_script.py" # Assuming predict.py is in the same directory or PATH  
 
 # --- Helper Function to Run Commands ---  
 def run_command(cmd_list, check=True, capture=False):  
@@ -105,7 +105,7 @@ try:
 
     # Construct the final 7 features: m, n, followed by the 5 from the file  
     # Ensure m and n are also converted to float  
-    features_for_predict = [float(m), float(n)] + file_features  
+    features_for_predict = [int(m), int(n)] + file_features  
 
     print(f"Successfully read 5 features from file. Prepared 7 total features for prediction: {features_for_predict}")  
 
@@ -122,7 +122,7 @@ except Exception as e:
 
 # --- Step 4: Run predict.py ---  
 # Ensure the number of features passed matches predict.py's expectation (now 7)  
-cmd_predict = ['python', PREDICT_SCRIPT, '--features'] + [str(f) for f in features_for_predict]  
+cmd_predict = ['python', PREDICT_SCRIPT] + [str(f) for f in features_for_predict]  
 predict_result = run_command(cmd_predict, check=True, capture=True) # Execute and capture output 
 # --- Step 5: Parse predict.py output for the flag ---  
 predicted_flag = None  
