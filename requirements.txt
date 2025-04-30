@@ -2,3 +2,6 @@ torch
 numpy  
 matplotlib  
 pandas
+scikit-learn
+tensorflow
+typing-extensions
