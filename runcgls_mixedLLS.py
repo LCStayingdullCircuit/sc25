@@ -90,13 +90,15 @@ if not os.path.exists(results_filename):
 
 try:  
     with open(results_filename, 'r') as f:  
-        line = f.readline()  
-        if line:  
-            # Read the values from the file  
-            file_features = [float(val) for val in line.strip().split()]  
+        lines = f.readlines()  
+        if lines:   
+            file_features = [float(line.strip()) for line in lines if line.strip()]  
         else:  
             print(f"Error: Results file '{results_filename}' is empty.")  
             sys.exit(1)  
+except Exception as e:  
+    print(f"Error reading file: {e}")  
+    sys.exit(1)  
 
     # Check if exactly 5 features were read from the file  
     if len(file_features) != 5:  
