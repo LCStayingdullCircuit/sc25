@@ -1,7 +1,3 @@
-以下是你提供的说明内容的英文翻译，并调整为 Markdown 格式，清晰表达每部分内容：
-
----
-
 ## Scripts for Plotting Figures in the Paper
 
 ### 1. `draw_iteration.py`
@@ -41,6 +37,4 @@
 - **High Precision QR Time**: High-precision QR decomposition time.
 - **Calculation Time**: High-precision solver time.
 
----
 
-If you need this content in Chinese or have further adjustments, please let me know!
